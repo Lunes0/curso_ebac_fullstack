@@ -1,0 +1,16 @@
+{
+  "name": "modulo-19---atividade",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "less": "lessc bem/main.less bem/main.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "less": "^4.3.0"
+  }
+}
