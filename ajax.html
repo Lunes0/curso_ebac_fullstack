@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Github</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img class="profile-avatar" src="" alt="Avatar do usuário" id="avatar">
+            <h1 class="profile-name" id="name"></h1>
+            <h2 class="profile-username" id="username"></h2>
+            <ul class="numbers">
+                <li class="numbers-item">
+                    <h4>Repositórios</h4>
+                    <span id="repos"></span>
+                </li>
+                <li class="numbers-item">
+                    <h4>Seguidores</h4>
+                    <span id="followers"></span>
+                </li>
+                <li class="numbers-item">
+                    <h4>Seguindo</h4>             <span id="following"></span>
+                </li>
+            </ul>
+            <a href="#" id="link" class="profile-link">Ver no Github</a>
+        </div>
+    </header>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileAvatar = document.querySelector('#avatar');
+            const profileName = document.querySelector('#name');
+            const profileUsername = document.querySelector('#username');
+            const profileRepos = document.querySelector('#repos');
+            const profileFollowers = document.querySelector('#followers');
+            const profileFollowing = document.querySelector('#following');
+            const profileLink = document.querySelector('#link');
+
+            fetch('https://api.github.com/users/Lunes0')
+                .then(response => response.json())
+                .then(json => {
+                    profileAvatar.src = json.avatar_url;
+                    profileName.innerText = json.name;
+                    profileUsername.innerText = json.login;
+                    profileRepos.innerText = json.public_repos;
+                    profileFollowers.innerText = json.followers;
+                    profileFollowing.innerText = json.following;
+                    profileLink.href = json.html_url;
+                })
+        });
+    </script>
+</body>
+</html>
